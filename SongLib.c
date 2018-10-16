@@ -41,8 +41,8 @@ void print_artist_song(Library lib, char artist[]){
 }
 
 void print_library(Library s){
-	for (int i = 0; i < 10; i++){
-		song start = (s -> album)[i];
+	for (int i = 0; i < 26; i++){
+		song start = (s->album)[i];
 		if (start != NULL){
 			// print_entries(s,(char)(i+(int)'A'));
 			print_list(start);

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "LinkedList.h"
 
-typedef struct Library { song album[27]; } *Library;
+typedef struct library { song album[26]; } *Library;
 
 void add_song(Library lib, song s);
 
