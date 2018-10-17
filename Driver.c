@@ -11,7 +11,7 @@ int main(){
   //Constructing songs
   struct song_node *song1 = malloc(sizeof(struct song_node));
   strcpy(song1 -> name,"ThunderStruck");
-  strcpy(song1 -> artist,"ac/dc");
+  strcpy(song1 -> artist,"Ac/dc");
   song1 -> next = NULL;
   struct song_node *song2 = malloc(sizeof(struct song_node));
   strcpy(song2 -> name,"Canals");
@@ -55,13 +55,28 @@ int main(){
   ///////////////////////////////////////////////////////////
   //test find
   printf("Testing find:\n");
-  printf("looking for [I'm always right: Crystal]\n");
+  printf("Looking for [I'm always right: Crystal]\n");
   print_node(get_song(biblio,"I'm always right","Crystal"));
-  printf("looking for [This dong doesn't exist: DNE]\n");
+  printf("\nLooking for [This dong doesn't exist: DNE]\n");
   print_node(get_song(biblio,"This song doesn't exits", "DNE"));
-  printf("==========================================\n");
+  printf("\n==========================================\n");
   //////////////////////////////////////////////////////////
-  
+  //testing find artist
+  printf("Testing find artist:\n");
+  printf("Looking for [Crystal]\n");
+  search_artist(biblio,"Crystal");
+  printf("Looking for [Robin]\n");
+  search_artist(biblio,"Robin");
+  printf("==========================================\n");    
+  //////////////////////////////////////////////////////////
+  //testing remove song
+  printf("Testing remove song:\n");
+  printf("Library before removal: \n");
+  print_library(biblio);
+  printf("Removing [ThunderStruck: Ac/dc]\n");
+  delete_song(biblio,"ThunderStruck","Ac/dc");
+  printf("Library after removal: \n");
+  print_library(biblio);
 
 
 
