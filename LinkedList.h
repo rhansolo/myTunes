@@ -16,3 +16,4 @@ void add_node(struct song_node *start, struct song_node *new);
 struct song_node *get_node(struct song_node *start, char name[], char artist[]);
 struct song_node *get_randnode(struct song_node *start);
 void remove_node(struct song_node *start, char name[], char artist[]);
+void print_node(song s);

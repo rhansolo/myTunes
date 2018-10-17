@@ -4,13 +4,20 @@
 void print_list(struct song_node *start){
 	printf("[");
 	while (start){
-		printf("%s",start -> artist);
+		printf("%s|%s",start -> artist, start -> name);
 		if (start -> next){
 			printf(",");
 		}
 		start = start -> next;
 	}
 	printf("]\n");
+}
+void print_node(song s){
+	if (s == NULL){
+		printf("Song not Found");
+		return;
+	}
+	printf("%s:%s",s->artist, s->name);
 }
 
 struct song_node *insert_front(struct song_node *list, char name[], char artist[]){
@@ -24,6 +31,7 @@ struct song_node *free_list(struct song_node *start){
 	struct song_node *current = start;
 	while (current){
 		struct song_node *temp = current -> next;
+		printf("Freeing Node: %s - %s\n",current->artist,current->name);
 		free(current);
 		current = temp;
 	}
@@ -61,8 +69,23 @@ struct song_node *get_node(struct song_node *start, char name[], char artist[]){
 	}
 	return NULL;
 }
+int get_length(struct song_node *start){
+	int len = 0;
+	while (start != NULL){
+		len += 1;
+		start = start -> next;
+	}
+	return len;
+}
 struct song_node *get_randnode(struct song_node *start){
-	return NULL;
+	struct song_node *temp = start;
+	srand(time(NULL));
+	int index = rand() % get_length(temp);
+
+	for (int i = 0; i < index ; i++){
+		start = start -> next;
+	}
+	return start;
 }
 void remove_node(struct song_node *start, char name[], char artist[]){
 	while (start -> next != NULL){

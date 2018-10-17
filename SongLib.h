@@ -8,17 +8,20 @@ void add_song(Library lib, song s);
 
 song get_song(Library lib, char name[], char artist[]);
 
-song *get_artist(Library lib, char artist[]);
+void search_artist(Library lib, char artist[]);
 
-void print_entries(Library lib, char letter);
+void print_letter(Library lib, char letter);
 
 void print_artist_song(Library lib, char artist[]);
 
-void print_library(Library s);
+void print_library(Library lib);
 
-void shuffle(Library s);
+void shuffle(Library lib);
 
-int delete_song(Library s, char name[], char artist[]);
+int delete_song(Library lib, char name[], char artist[]);
+
+void clear_lib(Library lib);
+
 
 
 
