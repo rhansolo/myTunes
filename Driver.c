@@ -6,6 +6,39 @@
 #include "SongLib.h"
 
 int main(){
+  // LINKED LIST TESTS 
+  printf("LINKED LIST TESTS \n");
+  printf("=============================\n\n");
+  //Constructing nodes
+  struct song_node *node1 = malloc(sizeof(struct song_node));
+  strcpy(node1 -> name,"ThunderStruck");
+  strcpy(node1 -> artist,"Ac/dc");
+  node1 -> next = NULL;
+  struct song_node *node2 = malloc(sizeof(struct song_node));
+  strcpy(node2 -> name,"Canals");
+  strcpy(node2 -> artist,"Joakim Karud");
+  node2 -> next = NULL;
+  struct song_node *node3 = malloc(sizeof(struct song_node));
+  strcpy(node3 -> name,"I'm good at multi");
+  strcpy(node3 -> artist,"Steven");
+  node3 -> next = NULL;
+  struct song_node *node4 = malloc(sizeof(struct song_node));
+  strcpy(node4 -> name,"I <3 DW");
+  strcpy(node4 -> artist,"Time");
+  node4 -> next = NULL;
+  struct song_node *node5 = malloc(sizeof(struct song_node));
+  strcpy(node5 -> name,"I don't come to class");
+  strcpy(node5 -> artist,"Peter");
+  node5 -> next = NULL;
+  struct song_node *node6 = malloc(sizeof(struct song_node));
+  strcpy(node6 -> name,"I'm always right");
+  strcpy(node6 -> artist,"Crystal");
+  node6 -> next = NULL;
+  //////////////////////////////////////////////////////////////////
+  //Testing print_list
+  printf("Testing print_list: \n");
+  /////////////////////////////////////////////////////////////////////////////////////////
+  // MUSIC LIBRARY TESTS 
   printf("MUSIC LIBRARY TESTS \n");
   printf("=============================\n\n");
   //Constructing songs
