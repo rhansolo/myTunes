@@ -52,12 +52,40 @@ int main(){
   print_node(node1);
   print_node(node3);
   print_node(node5);
-
-
-
-
-
-
+  printf("=========================================\n");
+  ///////////////////////////////////////////////////////////////
+  //Testing find_artist
+  printf("Testing find artist:\n");
+  printf("Looking for [Joakim Karud]");
+  printf("=========================================\n");
+  ///////////////////////////////////////////////////////////////
+  //Testing find_node
+  printf("Testing find_node:\n");
+  printf("Looking for [I'm good at multi, Steven]\n");
+  print_node(get_node(node1,"I'm good at multi","Steven"));
+  printf("Looking for [I'm terrible at multi, Steven]\n");
+  print_node(get_node(node2,"I'm terrible at multi","Steven"));
+  printf("=========================================\n");
+  ///////////////////////////////////////////////////////////////
+  //Testing songcmp (helper function)
+  printf("Testing songcmp (helperfunction):\n");
+  printf("=========================================\n");
+  ////////////////////////////////////////////////////////////////
+  //Testing random
+  printf("Testing random:\n");
+  print_node(get_randnode(node1));
+  print_node(get_randnode(node1));
+  print_node(get_randnode(node1));
+  printf("=========================================\n");
+  ///////////////////////////////////////////////////////////////
+  //Testing free_list
+  printf("Testing free_list:\n");
+  free_list(node1);
+  free_list(node5);
+  printf("List after free_list:\n");
+  print_list(node1);
+  print_list(node5);
+  printf("=========================================\n\n");
 
 
   /////////////////////////////////////////////////////////////////////////////////////////
