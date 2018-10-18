@@ -35,8 +35,31 @@ int main(){
   strcpy(node6 -> artist,"Crystal");
   node6 -> next = NULL;
   //////////////////////////////////////////////////////////////////
+  //Storing nodes
+  add_node(node1,node2);
+  add_node(node2,node3);
+  add_node(node2,node4);
+  add_node(node5,node6);
+  //////////////////////////////////////////////////////////////////
   //Testing print_list
   printf("Testing print_list: \n");
+  print_list(node1);
+  print_list(node5);
+  printf("=========================================\n");
+  /////////////////////////////////////////////////////////////////
+  //Testing print_node
+  printf("Testing print_node: \n");
+  print_node(node1);
+  print_node(node3);
+  print_node(node5);
+
+
+
+
+
+
+
+
   /////////////////////////////////////////////////////////////////////////////////////////
   // MUSIC LIBRARY TESTS 
   printf("MUSIC LIBRARY TESTS \n");
@@ -90,9 +113,9 @@ int main(){
   printf("Testing find:\n");
   printf("Looking for [I'm always right: Crystal]\n");
   print_node(get_song(biblio,"I'm always right","Crystal"));
-  printf("\nLooking for [This dong doesn't exist: DNE]\n");
+  printf("Looking for [This dong doesn't exist: DNE]\n");
   print_node(get_song(biblio,"This song doesn't exits", "DNE"));
-  printf("\n==========================================\n");
+  printf("==========================================\n");
   //////////////////////////////////////////////////////////
   //testing find artist
   printf("Testing find artist:\n");
