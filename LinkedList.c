@@ -14,7 +14,7 @@ void print_list(struct song_node *start){
 }
 void print_node(song s){
 	if (s == NULL){
-		printf("Song not Found");
+		printf("Song not Found\n");
 		return;
 	}
 	printf("%s:%s\n",s->artist, s->name);
@@ -69,6 +69,15 @@ struct song_node *get_node(struct song_node *start, char name[], char artist[]){
 	}
 	return NULL;
 }
+struct song_node *get_artist_node(struct song_node *start, char artist[]){
+	while (start != NULL){
+		if (strcmp(start->artist,artist) == 0){
+			return start;
+		}
+		start = start -> next;
+	}
+	return NULL;
+}
 int get_length(struct song_node *start){
 	int len = 0;
 	while (start != NULL){
@@ -80,6 +89,7 @@ int get_length(struct song_node *start){
 struct song_node *get_randnode(struct song_node *start){
 	struct song_node *temp = start;
 	srand(time(NULL));
+	printf("%d\n",get_length(temp));
 	int index = rand() % get_length(temp);
 
 	for (int i = 0; i < index ; i++){

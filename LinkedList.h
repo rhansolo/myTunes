@@ -17,3 +17,5 @@ struct song_node *get_node(struct song_node *start, char name[], char artist[]);
 struct song_node *get_randnode(struct song_node *start);
 song remove_node(struct song_node *start, char name[], char artist[]);
 void print_node(song s);
+int song_cmp(struct song_node *a, struct song_node *b);
+struct song_node *get_artist_node(struct song_node *start, char artist[]);

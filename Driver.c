@@ -34,6 +34,10 @@ int main(){
   strcpy(node6 -> name,"I'm always right");
   strcpy(node6 -> artist,"Crystal");
   node6 -> next = NULL;
+  struct song_node *node7 = malloc(sizeof(struct song_node));
+  strcpy(node3 -> name,"I'm good at multi");
+  strcpy(node3 -> artist,"Steven");
+  node3 -> next = NULL;
   //////////////////////////////////////////////////////////////////
   //Storing nodes
   add_node(node1,node2);
@@ -56,7 +60,12 @@ int main(){
   ///////////////////////////////////////////////////////////////
   //Testing find_artist
   printf("Testing find artist:\n");
-  printf("Looking for [Joakim Karud]");
+  printf("Looking for [Joakim Karud] (Expected Success)");
+  printf("\n");
+  print_node(get_artist_node(node1,"Joakim Karud"));
+  printf("Looking for [Joakim Karud] (Expected Failure)");
+  printf("\n");
+  print_node(get_artist_node(node5,"Joakim Karud"));
   printf("=========================================\n");
   ///////////////////////////////////////////////////////////////
   //Testing find_node
@@ -69,6 +78,10 @@ int main(){
   ///////////////////////////////////////////////////////////////
   //Testing songcmp (helper function)
   printf("Testing songcmp (helperfunction):\n");
+  printf("%s\n","Comparing Steven with Steven:");
+  printf("%d\n",song_cmp(node3,node7));
+  printf("%s\n","Comparing Peter with Steven (1 represents Greater, 0 means Lower or equal):");
+  printf("%d\n",song_cmp(node7,node2));
   printf("=========================================\n");
   ////////////////////////////////////////////////////////////////
   //Testing random
@@ -80,8 +93,8 @@ int main(){
   ///////////////////////////////////////////////////////////////
   //Testing free_list
   printf("Testing free_list:\n");
-  free_list(node1);
-  free_list(node5);
+  node1 = free_list(node1);
+  node5 = free_list(node5);
   printf("List after free_list:\n");
   print_list(node1);
   print_list(node5);
@@ -117,6 +130,10 @@ int main(){
   strcpy(song6 -> name,"I'm always right");
   strcpy(song6 -> artist,"Crystal");
   song6 -> next = NULL;
+  struct song_node *song7 = malloc(sizeof(struct song_node));
+  strcpy(song7 -> name,"Zzz");
+  strcpy(song7 -> artist,"Crystal");
+  song6 -> next = NULL;
   ////////////////////////////////////////////////////////////
   //Storing songs
   Library biblio = calloc(sizeof(struct library),1);
@@ -126,6 +143,7 @@ int main(){
   add_song(biblio,song4);
   add_song(biblio,song5);
   add_song(biblio,song6);
+  add_song(biblio,song7);
   ////////////////////////////////////////////////////////////
   //print library
   printf("Testing print_library:\n");
