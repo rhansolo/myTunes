@@ -88,8 +88,8 @@ int get_length(struct song_node *start){
 }
 struct song_node *get_randnode(struct song_node *start){
 	struct song_node *temp = start;
-	srand(time(NULL));
-	printf("%d\n",get_length(temp));
+	//srand(time(NULL));
+	//printf("%d\n",get_length(temp));
 	int index = rand() % get_length(temp);
 
 	for (int i = 0; i < index ; i++){

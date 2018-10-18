@@ -7,6 +7,7 @@
 
 int main(){
   // LINKED LIST TESTS 
+  srand(time(NULL));
   printf("\nLINKED LIST TESTS \n");
   printf("***************************************************************************\n");
   //Constructing nodes
@@ -87,6 +88,8 @@ int main(){
   ////////////////////////////////////////////////////////////////
   //Testing random
   printf("Testing random:\n");
+  print_node(get_randnode(node1));
+  print_node(get_randnode(node1));
   print_node(get_randnode(node1));
   print_node(get_randnode(node1));
   print_node(get_randnode(node1));
@@ -185,8 +188,15 @@ int main(){
   delete_song(biblio,"ThunderStruck","Ac/dc");
   printf("Library after removal: \n");
   print_library(biblio);
-  printf("==========================================\n");  
+  printf("==========================================\n");
+  //////////////////////////////////////////////////////
+  //Testing shuffle
+  printf("Testing shuffle: \n");
+  shuffle(biblio);
+  //shuffle(biblio);
+  printf("==========================================\n");    
   /////////////////////////////////////////////////////////
+
   //testing clear_library
   printf("Testing clear_library:\n");
   clear_lib(biblio);
@@ -213,75 +223,8 @@ int main(){
   printf("printing [Ben Dover]\n");
   print_artist_song(biblio,"Ben Dover");
   printf("==========================================\n");  
-  //////////////////////////////////////////////////////
-  //Testing shuffle
-  printf("Testing shuffle: \n");
-  shuffle(biblio);
-  //shuffle(biblio);
-  printf("==========================================\n");  
 
 
-
-
-
-  
-
-
-
-
-
-
-  /////////////////////////////////////////////////////////
-  // add_node(list,g);
-  // print_list(list);
-  // add_node(list,h);
-  // print_list(list);
-  
-  // remove_node(list,"Steven","Steven");
-  // print_list(list);
-  // remove_node(list,"Time","Time");
-  // print_list(list);
-  
-  //////////////////////////////////////////////////////////////////////////////////////////
-  
-  
-  // printf("%d\n",(char)((list->name)[0]) - 'A');
-  // // song start = biblio->album[(char)((list->name)[0]) - 'A'];
-  // printf("%d\n",(int)(start == NULL));
-  
-  // printf("%c\n",(list->name)[0]);
-  // char a[50];
-  // strcpy(a,"Hi");
-  // printf("%c\n",a[0]);
-  //printf("%s\n",biblio->album[1]->artist);
-  //printf("%c\n",(char)(2+(int)'A'));
-  
-  //add_song(biblio,l);
-
-  //print_entries(biblio,'B');
-
-  // song start = (biblio -> album)[2];
-  // if (start == NULL){
-  // 	printf("run");
-  // }
-  //print_entries(biblio,'B');
-  // printf("%d\n",biblio -> album[0] == NULL);
-  // print_entries(biblio,'C');
-  // print_library(biblio);
-  // add_song(biblio,g);
-  // print_library(biblio);
-  // add_song(biblio,h);
-  // print_library(biblio);
-  
-
-
-
-
-
-
-
-  // list = free_list(list);
-  // printf("list is now %s\n",(char*)list);
   return 0;
 }
 

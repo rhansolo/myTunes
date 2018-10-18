@@ -108,15 +108,15 @@ void print_library(Library lib){
 }
 
 void shuffle(Library lib){
-	srand(time(NULL));
-	for (int i = 0; i < 3; i++){
+	//srand(time(NULL));
+	for (int i = 0; i < 7; i++){
 		song temp = lib->album[rand() % 26];
 		while (temp == NULL){
 			temp = lib->album[rand() % 26];
 		}
 		print_node(get_randnode(temp));
 	}
-	printf("\n");
+	//printf("\n");
 	return;
 }	
 
