@@ -17,7 +17,7 @@ void print_node(song s){
 		printf("Song not Found");
 		return;
 	}
-	printf("%s:%s",s->artist, s->name);
+	printf("%s:%s\n",s->artist, s->name);
 }
 
 struct song_node *insert_front(struct song_node *list, char name[], char artist[]){

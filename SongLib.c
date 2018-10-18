@@ -1,21 +1,43 @@
 #include "SongLib.h"
 
 void add_song(Library lib, song s){
-	song start = lib->album[(char)((s->artist)[0]) - 'A'];
-	if (start == NULL){
-		lib->album[(s->artist)[0] - 'A'] = s;
+	song start; 
+	if ((s->artist)[0] - 'a' > 0){
+		start = lib->album[(s->artist)[0]-'a'];
+		if (start == NULL){
+			lib->album[(s->artist)[0] - 'a'] = s;
 		return;
+	}
+	}
+	else{
+		start = lib->album[(s->artist)[0]-'A'];
+		if (start == NULL){
+			lib->album[(s->artist)[0] - 'A'] = s;
+		return;
+	}
 	}
 	add_node(start,s);
 }
 
 song get_song(Library lib, char name[], char artist[]){
-	song start = lib->album[(char)artist[0] - 'A'];
+	song start;
+	if (artist[0]-'a' >= 0){
+		start = lib->album[artist[0] - 'a'];
+	}
+	else{
+		start = lib->album[artist[0] - 'A'];
+	}
 	return get_node(start,name,artist);
 }
 
 void search_artist(Library lib, char artist[]){
-	song start = lib->album[(char)artist[0] - 'A'];
+	song start;
+	if (artist[0]-'a' >= 0){
+		start = lib->album[artist[0] - 'a'];
+	}
+	else{
+		start = lib->album[artist[0] - 'A'];
+	}
 	int counter = 0;
 	while (start != NULL){
 		if (strcmp(start->artist,artist) == 0){
@@ -31,7 +53,13 @@ void search_artist(Library lib, char artist[]){
 }
 
 void print_letter(Library lib, char letter){
-	song start = lib->album[letter - 'A'];
+	song start;
+	if (letter-'a' >= 0){
+		start = lib->album[letter - 'a'];
+	}
+	else{
+		start = lib->album[letter - 'A'];
+	}
 	if (start == NULL){
 		printf("No Author with letter %c\n",letter);
 	}
@@ -43,7 +71,13 @@ void print_letter(Library lib, char letter){
 }
 
 void print_artist_song(Library lib, char artist[]){
-	song start = lib->album[artist[0] - 'A'];
+	song start;
+	if (artist[0]-'a' >= 0){
+		start = lib->album[artist[0] - 'a'];
+	}
+	else{
+		start = lib->album[artist[0] - 'A'];
+	}
 	int counter = 0;
 	while (start != NULL){
 		if (strcmp(start->artist,artist) == 0){
@@ -76,25 +110,26 @@ void print_library(Library lib){
 void shuffle(Library lib){
 	srand(time(NULL));
 	for (int i = 0; i < 3; i++){
-		int index = rand() % 26;
-		song temp = lib->album[index];
+		song temp = lib->album[rand() % 26];
 		while (temp == NULL){
-			index = rand() % 26;
-			temp = lib->album[index];
+			temp = lib->album[rand() % 26];
 		}
 		print_node(get_randnode(temp));
-		printf(" | ");
 	}
 	printf("\n");
 	return;
 }	
 
 int delete_song(Library lib, char name[], char artist[]){
-	song start = lib->album[artist[0] - 'A'];
-	//print_node(start);
-	printf(name);
-	printf("\n");
-	lib->album[artist[0] - 'A'] = remove_node(start,name,artist);
+	song start;
+	if (artist[0]-'a' >= 0){
+		start = lib->album[artist[0] - 'a'];
+		lib->album[artist[0] - 'a'] = remove_node(start,name,artist);
+	}
+	else{
+		start = lib->album[artist[0] - 'A'];
+		lib->album[artist[0] - 'A'] = remove_node(start,name,artist);
+	}
 	return 0;
 }
 
