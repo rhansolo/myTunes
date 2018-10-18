@@ -77,6 +77,46 @@ int main(){
   delete_song(biblio,"ThunderStruck","Ac/dc");
   printf("Library after removal: \n");
   print_library(biblio);
+  printf("==========================================\n");  
+  /////////////////////////////////////////////////////////
+  //testing clear_library
+  printf("Testing clear_library:\n");
+  clear_lib(biblio);
+  print_library(biblio);
+  printf("==========================================\n");  
+  ////////////////////////////////////////////////////////
+  //add songs to empty library
+  printf("Adding songs to empty library:\n");
+  struct song_node *songA = malloc(sizeof(struct song_node));
+  strcpy(songA -> name,"Stuyvesant Sucks");
+  strcpy(songA -> artist,"Student Body");
+  songA -> next = NULL;
+  struct song_node *songB = malloc(sizeof(struct song_node));
+  strcpy(songB -> name,"Worst Song");
+  strcpy(songB -> artist,"Ben Dover");
+  songB -> next = NULL;
+  add_song(biblio,songA);
+  add_song(biblio,songB);
+  print_library(biblio);
+  printf("==========================================\n");  
+  ///////////////////////////////////////////////////////
+  //Testing print_artist
+  printf("Testing print_artist:\n");
+  printf("printing [Ben Dover]\n");
+  print_artist_song(biblio,"Ben Dover");
+  printf("==========================================\n");  
+  //////////////////////////////////////////////////////
+  //Testing shuffle
+  printf("Testing shuffle: \n");
+  shuffle(biblio);
+  //shuffle(biblio);
+  printf("==========================================\n");  
+
+
+
+
+
+  
 
 
 
