@@ -7,8 +7,8 @@
 
 int main(){
   // LINKED LIST TESTS 
-  printf("LINKED LIST TESTS \n");
-  printf("=============================\n\n");
+  printf("\nLINKED LIST TESTS \n");
+  printf("***************************************************************************\n");
   //Constructing nodes
   struct song_node *node1 = malloc(sizeof(struct song_node));
   strcpy(node1 -> name,"ThunderStruck");
@@ -78,9 +78,10 @@ int main(){
   ///////////////////////////////////////////////////////////////
   //Testing songcmp (helper function)
   printf("Testing songcmp (helperfunction):\n");
+  printf("(1 represents Greater, 0 means Lower or equal)\n");
   printf("%s\n","Comparing Steven with Steven:");
   printf("%d\n",song_cmp(node3,node7));
-  printf("%s\n","Comparing Peter with Steven (1 represents Greater, 0 means Lower or equal):");
+  printf("%s\n","Comparing Peter with Steven:");
   printf("%d\n",song_cmp(node7,node2));
   printf("=========================================\n");
   ////////////////////////////////////////////////////////////////
@@ -104,7 +105,7 @@ int main(){
   /////////////////////////////////////////////////////////////////////////////////////////
   // MUSIC LIBRARY TESTS 
   printf("MUSIC LIBRARY TESTS \n");
-  printf("=============================\n\n");
+  printf("***************************************************************************\n");
   //Constructing songs
   struct song_node *song1 = malloc(sizeof(struct song_node));
   strcpy(song1 -> name,"ThunderStruck");
@@ -134,6 +135,10 @@ int main(){
   strcpy(song7 -> name,"Zzz");
   strcpy(song7 -> artist,"Crystal");
   song6 -> next = NULL;
+  struct song_node *song8 = malloc(sizeof(struct song_node));
+  strcpy(song8 -> name,"Lightning");
+  strcpy(song8 -> artist,"Ac/dc");
+  song8 -> next = NULL;
   ////////////////////////////////////////////////////////////
   //Storing songs
   Library biblio = calloc(sizeof(struct library),1);
@@ -144,6 +149,7 @@ int main(){
   add_song(biblio,song5);
   add_song(biblio,song6);
   add_song(biblio,song7);
+  add_song(biblio,song8);
   ////////////////////////////////////////////////////////////
   //print library
   printf("Testing print_library:\n");
@@ -175,7 +181,7 @@ int main(){
   printf("Testing remove song:\n");
   printf("Library before removal: \n");
   print_library(biblio);
-  printf("Removing [ThunderStruck: Ac/dc]\n");
+  printf("\nRemoving [ThunderStruck: Ac/dc]\n\n");
   delete_song(biblio,"ThunderStruck","Ac/dc");
   printf("Library after removal: \n");
   print_library(biblio);
