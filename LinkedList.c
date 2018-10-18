@@ -87,16 +87,26 @@ struct song_node *get_randnode(struct song_node *start){
 	}
 	return start;
 }
-void remove_node(struct song_node *start, char name[], char artist[]){
+song remove_node(struct song_node *start, char name[], char artist[]){
+	song temp = start;
+	//printf("%s\n",name);
+	if (strcmp(start->name,name) == 0 
+			&& strcmp(start->artist,artist) == 0){
+		return start -> next;
+	}
 	while (start -> next != NULL){
+		// printf("%s\n",name);
+		// printf("%s\n",start->next->name);
+		printf("STRCMP: %d\n", strcmp(start->next->name,name));
 		if (strcmp(start->next->name,name) == 0 
 			&& strcmp(start->next->artist,artist) == 0){
-
 			start -> next = start -> next -> next;
-			return;
+			return temp;
 		}
 		start = start -> next;
 	}
+	printf("%s\n","Song not Found");
+	return temp;
 }
 
 

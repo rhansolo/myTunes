@@ -32,6 +32,9 @@ void search_artist(Library lib, char artist[]){
 
 void print_letter(Library lib, char letter){
 	song start = lib->album[letter - 'A'];
+	if (start == NULL){
+		printf("No Author with letter %c\n",letter);
+	}
 	while (start != NULL){
 		printf("%s:%s|",start->artist,start->name);
 		start = start -> next;
@@ -62,7 +65,6 @@ void print_library(Library lib){
 			// print_entries(s,(char)(i+(int)'A'));
 			printf("%c list:\n",(char)(i+(int)'A'));
 			print_list(start);
-			printf("\n");
 			counter+=1;
 		}
 	}
@@ -89,7 +91,10 @@ void shuffle(Library lib){
 
 int delete_song(Library lib, char name[], char artist[]){
 	song start = lib->album[artist[0] - 'A'];
-	remove_node(start,name,artist);
+	//print_node(start);
+	printf(name);
+	printf("\n");
+	lib->album[artist[0] - 'A'] = remove_node(start,name,artist);
 	return 0;
 }
 
