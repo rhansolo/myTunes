@@ -36,15 +36,16 @@ int main(){
   strcpy(node6 -> artist,"Crystal");
   node6 -> next = NULL;
   struct song_node *node7 = malloc(sizeof(struct song_node));
-  strcpy(node3 -> name,"Introvert");
-  strcpy(node3 -> artist,"Rich Brian");
-  node3 -> next = NULL;
+  strcpy(node7 -> name,"Extrovert");
+  strcpy(node7 -> artist,"Rich Brian");
+  node7 -> next = NULL;
   //////////////////////////////////////////////////////////////////
   //Storing nodes
   add_node(node1,node2);
   add_node(node2,node3);
-  add_node(node2,node4);
+  add_node(node3,node4);
   add_node(node5,node6);
+  add_node(node6,node7);
   //////////////////////////////////////////////////////////////////
   //Testing print_list
   printf("Testing print_list: \n");
@@ -83,7 +84,7 @@ int main(){
   printf("%s\n","Comparing Rich Bria with Rich Brian:");
   printf("%d\n",song_cmp(node3,node7));
   printf("%s\n","Comparing Peter Meuser with Rich Brian:");
-  printf("%d\n",song_cmp(node7,node2));
+  printf("%d\n",song_cmp(node5,node7));
   printf("=========================================\n");
   ////////////////////////////////////////////////////////////////
   //Testing random
