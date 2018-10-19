@@ -20,24 +20,24 @@ int main(){
   strcpy(node2 -> artist,"Joakim Karud");
   node2 -> next = NULL;
   struct song_node *node3 = malloc(sizeof(struct song_node));
-  strcpy(node3 -> name,"I'm good at multi");
-  strcpy(node3 -> artist,"Steven");
+  strcpy(node3 -> name,"Introvert");
+  strcpy(node3 -> artist,"Rich Brian");
   node3 -> next = NULL;
   struct song_node *node4 = malloc(sizeof(struct song_node));
   strcpy(node4 -> name,"I <3 DW");
   strcpy(node4 -> artist,"Time");
   node4 -> next = NULL;
   struct song_node *node5 = malloc(sizeof(struct song_node));
-  strcpy(node5 -> name,"I don't come to class");
-  strcpy(node5 -> artist,"Peter");
+  strcpy(node5 -> name,"Cold");
+  strcpy(node5 -> artist,"Peter Meuser");
   node5 -> next = NULL;
   struct song_node *node6 = malloc(sizeof(struct song_node));
-  strcpy(node6 -> name,"I'm always right");
+  strcpy(node6 -> name,"We Got History");
   strcpy(node6 -> artist,"Crystal");
   node6 -> next = NULL;
   struct song_node *node7 = malloc(sizeof(struct song_node));
-  strcpy(node3 -> name,"I'm good at multi");
-  strcpy(node3 -> artist,"Steven");
+  strcpy(node3 -> name,"Introvert");
+  strcpy(node3 -> artist,"Rich Brian");
   node3 -> next = NULL;
   //////////////////////////////////////////////////////////////////
   //Storing nodes
@@ -71,18 +71,18 @@ int main(){
   ///////////////////////////////////////////////////////////////
   //Testing find_node
   printf("Testing find_node:\n");
-  printf("Looking for [I'm good at multi, Steven]\n");
-  print_node(get_node(node1,"I'm good at multi","Steven"));
-  printf("Looking for [I'm terrible at multi, Steven]\n");
-  print_node(get_node(node2,"I'm terrible at multi","Steven"));
+  printf("Looking for [Introvert, Rich Brian]\n");
+  print_node(get_node(node1,"Introvert","Rich Brian"));
+  printf("Looking for [I'm terrible at multi, Rich Brian]\n");
+  print_node(get_node(node2,"I'm terrible at multi","Rich Brian"));
   printf("=========================================\n");
   ///////////////////////////////////////////////////////////////
   //Testing songcmp (helper function)
   printf("Testing songcmp (helperfunction):\n");
   printf("(1 represents Greater, 0 means Lower or equal)\n");
-  printf("%s\n","Comparing Steven with Steven:");
+  printf("%s\n","Comparing Rich Bria with Rich Brian:");
   printf("%d\n",song_cmp(node3,node7));
-  printf("%s\n","Comparing Peter with Steven:");
+  printf("%s\n","Comparing Peter Meuser with Rich Brian:");
   printf("%d\n",song_cmp(node7,node2));
   printf("=========================================\n");
   ////////////////////////////////////////////////////////////////
@@ -119,19 +119,19 @@ int main(){
   strcpy(song2 -> artist,"Joakim Karud");
   song2 -> next = NULL;
   struct song_node *song3 = malloc(sizeof(struct song_node));
-  strcpy(song3 -> name,"I'm good at multi");
-  strcpy(song3 -> artist,"Steven");
+  strcpy(song3 -> name,"Introvert");
+  strcpy(song3 -> artist,"Rich Brian");
   song3 -> next = NULL;
   struct song_node *song4 = malloc(sizeof(struct song_node));
   strcpy(song4 -> name,"I <3 DW");
   strcpy(song4 -> artist,"Time");
   song4 -> next = NULL;
   struct song_node *song5 = malloc(sizeof(struct song_node));
-  strcpy(song5 -> name,"I don't come to class");
-  strcpy(song5 -> artist,"Peter");
+  strcpy(song5 -> name,"Cold");
+  strcpy(song5 -> artist,"Peter Meuser");
   song5 -> next = NULL;
   struct song_node *song6 = malloc(sizeof(struct song_node));
-  strcpy(song6 -> name,"I'm always right");
+  strcpy(song6 -> name,"We Got History");
   strcpy(song6 -> artist,"Crystal");
   song6 -> next = NULL;
   struct song_node *song7 = malloc(sizeof(struct song_node));
@@ -166,8 +166,8 @@ int main(){
   ///////////////////////////////////////////////////////////
   //test find
   printf("Testing find:\n");
-  printf("Looking for [I'm always right: Crystal]\n");
-  print_node(get_song(biblio,"I'm always right","Crystal"));
+  printf("Looking for [We Got History: Crystal]\n");
+  print_node(get_song(biblio,"We Got History","Crystal"));
   printf("Looking for [This dong doesn't exist: DNE]\n");
   print_node(get_song(biblio,"This song doesn't exits", "DNE"));
   printf("==========================================\n");
