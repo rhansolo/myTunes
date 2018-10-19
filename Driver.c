@@ -225,7 +225,9 @@ int main(){
   print_artist_song(biblio,"Ben Dover");
   printf("==========================================\n");  
 
-
+  clear_lib(biblio);
+  free(biblio);
+  printf("Freed Library\n");
   return 0;
 }
 
